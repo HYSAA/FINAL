@@ -1,7 +1,6 @@
 ﻿FINALS GUIDE
 FOR CSS
 
-
 To use the generator the user has to use
 require_once 'CSSGenerator.php';
 
@@ -16,34 +15,42 @@ getCSSContent-Purpose: Retrieves the generated CSS content.
 ////////////////////////////////////////////////////////////////////////////////
 
 FOR HTML
-To use the HTML element generator, the user has to include the necessary file:
-require_once 'HTMLElementGenerator.php';
 
-Purpose: Instantiate an HTML element of the specified type.
+Defined under the namespace MyNamespace
 
-Usage:
-$element = new HTMLElement($tagName);
+Properties:
+html_content:
+Private string property that stores the HTML content being generated.
 
-Purpose: Add an attribute to an HTML element.
+Methods:
 
-Usage:
-$element->setAttribute($name, $value);
+addTag($tagName, $attributes = [])
+Adds an opening HTML tag with optional attributes.
+Parameters:
+tagName: String representing the name of the HTML tag (e.g., div, p, span).
+attributes: Optional associative array where the key is the attribute name and the value is the attribute value.
+Returns:
+The instance of the HTMLGenerator class to allow method chaining.
 
-Purpose: Add inner content to an HTML element.
+addContent($content)
+Adds content inside the current HTML tag.
+Parameters:
+content: String representing the content to be added inside the HTML tags.
+Returns:
+The instance of the HTMLGenerator class to allow method chaining.
 
-Usage:
-$element->setContent($content);
+addCloseTag($tagName)
+Adds a closing HTML tag.
+Parameters:
+tagName: String representing the name of the HTML tag to close (e.g., div, p, span).
+Returns:
+The instance of the HTMLGenerator class to allow method chaining.
 
-Purpose: Generate the HTML string for the element.
+addLinkTag($href, $attributes = [])
+Adds a <link> tag with an href attribute and optional additional attributes.
 
-Usage:
-$html = $element->render();
+addImgTag($src, $attributes = [])
+Adds an <img> tag with a src attribute and optional additional attributes.
 
-
-
-
-
-
-
-
-
+getHTMLContent()
+Returns the generated HTML content.
